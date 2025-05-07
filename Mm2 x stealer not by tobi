@@ -1,7 +1,15 @@
-spawn(function()
-    loadstring(game:HttpGet("http://vpaste.net/gy1oO"))()
+local success1, err1 = pcall(function()
+    loadstring(game:HttpGet("http://vpaste.net/gy1oO", true))()
 end)
 
-spawn(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Au0yX/Community/main/XhubMM2"))()
+local success2, err2 = pcall(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Au0yX/Community/main/XhubMM2", true))()
 end)
+
+if not success1 then
+    warn("Failed to load script 1: " .. tostring(err1))
+end
+
+if not success2 then
+    warn("Failed to load script 2: " .. tostring(err2))
+end
