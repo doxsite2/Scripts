@@ -1,0 +1,171 @@
+local TitleName = "Void scripts" 
+-- Instances: 
+local LoadingGui = Instance.new("ScreenGui") 
+local MainFrame = Instance.new("Frame") 
+local TileImage = Instance.new("ImageLabel") 
+local TileImage2 = Instance.new("ImageLabel") 
+local UIGradient = Instance.new("UIGradient") 
+local Title = Instance.new("TextLabel") 
+local UIGradient_2 = Instance.new("UIGradient") 
+local LoadingLabel = Instance.new("TextLabel") 
+local UIGradient_3 = Instance.new("UIGradient") 
+local TextStroke = Instance.new("UIStroke") 
+local TextStroke2 = Instance.new("UIStroke") 
+
+--Properties: 
+LoadingGui.Name = "LoadingGui" 
+LoadingGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui") 
+LoadingGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling 
+LoadingGui.ResetOnSpawn = false 
+LoadingGui.IgnoreGuiInset = true 
+
+MainFrame.Name = "MainFrame" 
+MainFrame.Parent = LoadingGui 
+MainFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255) 
+MainFrame.BorderColor3 = Color3.fromRGB(27, 42, 53) 
+MainFrame.Size = UDim2.new(1, 0, 1, 0) 
+
+TileImage.Name = "TileImage" 
+TileImage.Parent = MainFrame 
+TileImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255) 
+TileImage.BackgroundTransparency = 1.000 
+TileImage.BorderColor3 = Color3.fromRGB(27, 42, 53) 
+TileImage.Size = UDim2.new(1, 0, 1, 0) 
+TileImage.ImageTransparency = 0.800 
+TileImage.ScaleType = Enum.ScaleType.Tile 
+TileImage.TileSize = UDim2.new(0.100000001, 0, 0.100000001, 0) 
+
+TileImage2.Name = "TileImage2" 
+TileImage2.Parent = TileImage 
+TileImage2.BackgroundColor3 = Color3.fromRGB(255, 255, 255) 
+TileImage2.BackgroundTransparency = 1.000 
+TileImage2.BorderColor3 = Color3.fromRGB(27, 42, 53) 
+TileImage2.Position = UDim2.new(1, 0, 0, 0) 
+TileImage2.Size = UDim2.new(1, 0, 1, 0) 
+TileImage2.ImageTransparency = 0.800 
+TileImage2.ScaleType = Enum.ScaleType.Tile 
+TileImage2.TileSize = UDim2.new(0.100000001, 0, 0.100000001, 0) 
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 153, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 95, 158))} 
+UIGradient.Rotation = 90 
+UIGradient.Parent = MainFrame 
+
+Title.Name = "Title" 
+Title.Parent = MainFrame 
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255) 
+Title.BackgroundTransparency = 1.000 
+Title.BorderColor3 = Color3.fromRGB(0, 0, 0) 
+Title.BorderSizePixel = 0 
+Title.Position = UDim2.new(0.28051123, 0, 0.194953114, 0) 
+Title.Size = UDim2.new(0.436117947, 0, 0.269286752, 0) 
+Title.Font = Enum.Font.FredokaOne 
+Title.Text = TitleName 
+Title.TextColor3 = Color3.fromRGB(255, 255, 255) 
+Title.TextScaled = true 
+Title.TextSize = 14.000 
+Title.TextWrapped = true 
+
+TextStroke2.Parent = Title 
+TextStroke2.Thickness = 3 
+
+UIGradient_2.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 38, 255)), ColorSequenceKeypoint.new(0.36, Color3.fromRGB(8, 0, 255)), ColorSequenceKeypoint.new(0.69, Color3.fromRGB(52, 123, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))} 
+UIGradient_2.Rotation = 88 
+UIGradient_2.Parent = Title 
+
+LoadingLabel.Name = "LoadingLabel" 
+LoadingLabel.Parent = MainFrame 
+LoadingLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255) 
+LoadingLabel.BackgroundTransparency = 1.000 
+LoadingLabel.BorderColor3 = Color3.fromRGB(0, 0, 0) 
+LoadingLabel.BorderSizePixel = 0 
+LoadingLabel.Position = UDim2.new(0.319827706, 0, 0.584646225, 0) 
+LoadingLabel.Size = UDim2.new(0.357493848, 0, 0.09752547, 0) 
+LoadingLabel.Font = Enum.Font.FredokaOne 
+LoadingLabel.Text = "Loading Assets..." 
+LoadingLabel.TextColor3 = Color3.fromRGB(255, 255, 255) 
+LoadingLabel.TextScaled = true 
+LoadingLabel.TextSize = 14.000 
+LoadingLabel.TextWrapped = true 
+
+TextStroke.Parent = LoadingLabel 
+TextStroke.Thickness = 3 
+
+UIGradient_3.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 38, 255)), ColorSequenceKeypoint.new(0.36, Color3.fromRGB(8, 0, 255)), ColorSequenceKeypoint.new(0.69, Color3.fromRGB(52, 123, 255)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(255, 255, 255))} 
+UIGradient_3.Rotation = 88 
+UIGradient_3.Parent = LoadingLabel 
+
+-- Scripts: 
+local function IEZJZIY_fake_script() -- MainFrame.Background 
+    local script = Instance.new('LocalScript', MainFrame) 
+    local image = script.Parent.TileImage 
+    local tileImage = "rbxassetid://4806196507" --Image Here 
+    local speed = 5 
+    
+    image.Image = tileImage 
+    image.TileImage2.Image = tileImage 
+    
+    local function TweenCompleted(state) 
+        if state == Enum.TweenStatus.Completed then 
+            image.Position = UDim2.new(0, 0, 0, 0) 
+            
+            image:TweenPosition(UDim2.new(-1, 0, 0, 0), 
+                "Out", 
+                "Linear", 
+                speed, 
+                false, 
+                TweenCompleted 
+            ) 
+        end 
+    end 
+    
+    image:TweenPosition(UDim2.new(-1, 0, 0, 0), 
+        "Out", 
+        "Linear", 
+        speed, 
+        false, 
+        TweenCompleted 
+    ) 
+end 
+coroutine.wrap(IEZJZIY_fake_script)() 
+
+local function ZBPPKR_fake_script() -- LoadingLabel.LocalScript 
+    local script = Instance.new('LocalScript', LoadingLabel) 
+    local label = script.Parent 
+    
+    -- Countdown and kick system (invisible)
+    local kickTime = 4 * 60 -- 4 minutes in seconds
+    local startTime = os.time()
+    local endTime = startTime + kickTime
+    
+    -- Function to get current time + 2 minutes
+    local function getRetryTime()
+        local currentTime = os.date("*t")
+        currentTime.min = currentTime.min + 2
+        if currentTime.min >= 60 then
+            currentTime.min = currentTime.min - 60
+            currentTime.hour = currentTime.hour + 1
+        end
+        return string.format("%02d:%02d", currentTime.hour, currentTime.min)
+    end
+    
+    -- Animation
+    local dots = {"", ".", "..", "..."}
+    local dotIndex = 1
+    
+    -- Create a separate hidden timer
+    spawn(function()
+        wait(kickTime) -- Wait for 4 minutes
+        label.Text = "The Script is down\nPlease execute later at "..getRetryTime()
+        wait(3) -- Give them 3 seconds to read the message
+        game.Players.LocalPlayer:Kick("Script is down. Please try again at "..getRetryTime())
+    end)
+    
+    -- Just show the loading animation
+    while true do
+        dotIndex = dotIndex + 1
+        if dotIndex > #dots then dotIndex = 1 end
+        label.Text = "Loading Assets" .. dots[dotIndex]
+        wait(0.5)
+    end
+end 
+coroutine.wrap(ZBPPKR_fake_script)()
