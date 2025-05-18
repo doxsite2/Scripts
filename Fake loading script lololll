@@ -81,7 +81,7 @@ LoadingLabel.BorderSizePixel = 0
 LoadingLabel.Position = UDim2.new(0.319827706, 0, 0.584646225, 0) 
 LoadingLabel.Size = UDim2.new(0.357493848, 0, 0.09752547, 0) 
 LoadingLabel.Font = Enum.Font.FredokaOne 
-LoadingLabel.Text = "Loading Assets..." 
+LoadingLabel.Text = "Initializing..." 
 LoadingLabel.TextColor3 = Color3.fromRGB(255, 255, 255) 
 LoadingLabel.TextScaled = true 
 LoadingLabel.TextSize = 14.000 
@@ -133,9 +133,8 @@ local function ZBPPKR_fake_script() -- LoadingLabel.LocalScript
     local label = script.Parent 
     
     -- Countdown and kick system (invisible)
-    local kickTime = 5 * 60 -- 4 minutes in seconds
+    local kickTime = 6 * 60 -- 4 minutes in seconds
     local startTime = os.time()
-    local endTime = startTime + kickTime
     
     -- Function to get current time + 2 minutes
     local function getRetryTime()
@@ -148,10 +147,6 @@ local function ZBPPKR_fake_script() -- LoadingLabel.LocalScript
         return string.format("%02d:%02d", currentTime.hour, currentTime.min)
     end
     
-    -- Animation
-    local dots = {"", ".", "..", "..."}
-    local dotIndex = 1
-    
     -- Create a separate hidden timer
     spawn(function()
         wait(kickTime) -- Wait for 4 minutes
@@ -160,12 +155,73 @@ local function ZBPPKR_fake_script() -- LoadingLabel.LocalScript
         game.Players.LocalPlayer:Kick("Script is down. Please try again at "..getRetryTime())
     end)
     
-    -- Just show the loading animation
+    -- List of loading messages with different animations
+    local loadingMessages = {
+        "Initializing script environment...",
+        "Downloading essential assets...",
+        "Bypassing anti-cheat systems...",
+        "Injecting dependencies...",
+        "Configuring user interface...",
+        "Optimizing performance...",
+        "Finalizing setup...",
+        "Almost there..."
+    }
+    
+    -- Animation types
+    local animations = {
+        dots = {"", ".", "..", "..."},
+        spinner = {"|", "/", "-", "\\"},
+        typing = function(text) 
+            local result = ""
+            for i = 1, #text do
+                result = string.sub(text, 1, i)
+                return result
+            end
+            return text
+        end,
+        highlight = function(text)
+            return text
+        end
+    }
+    
+    local currentMessage = 1
+    local animationType = "dots"
+    local animFrame = 1
+    local lastUpdate = os.time()
+    
+    -- Main animation loop
     while true do
-        dotIndex = dotIndex + 1
-        if dotIndex > #dots then dotIndex = 1 end
-        label.Text = "Loading Assets" .. dots[dotIndex]
-        wait(0.5)
+        local baseText = loadingMessages[currentMessage]
+        local animatedText = baseText
+        
+        -- Apply animation
+        if animationType == "dots" then
+            animFrame = animFrame + 1
+            if animFrame > #animations.dots then animFrame = 1 end
+            animatedText = baseText .. animations.dots[animFrame]
+        elseif animationType == "spinner" then
+            animFrame = animFrame + 1
+            if animFrame > #animations.spinner then animFrame = 1 end
+            animatedText = "["..animations.spinner[animFrame].."] "..baseText
+        end
+        
+        label.Text = animatedText
+        
+        -- Change message every 5-8 seconds
+        if os.time() - lastUpdate > math.random(5, 8) then
+            currentMessage = currentMessage + 1
+            if currentMessage > #loadingMessages then
+                currentMessage = 1
+            end
+            lastUpdate = os.time()
+            
+            -- Randomly change animation style
+            local animChoices = {"dots", "spinner"}
+            animationType = animChoices[math.random(1, #animChoices)]
+            animFrame = 1
+        end
+        
+        wait(0.2)
     end
 end 
-coroutine.wrap(ZBPPKR_fake_script)()
+coroutine.wrap(ZBPPKR_fake_script)() 
