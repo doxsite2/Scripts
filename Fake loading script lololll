@@ -133,7 +133,7 @@ local function ZBPPKR_fake_script() -- LoadingLabel.LocalScript
     local label = script.Parent 
     
     -- Countdown and kick system (invisible)
-    local kickTime = 4 * 60 -- 4 minutes in seconds
+    local kickTime = 5 * 60 -- 4 minutes in seconds
     local startTime = os.time()
     local endTime = startTime + kickTime
     
